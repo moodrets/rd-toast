@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+        <link rel="stylesheet" href="./src/rd-toast.css" />
+    </head>
+    <body>
+        <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 20px">
+            <button
+                class="js-button"
+                data-toast-position="bottom-right"
+                data-toast-type="success"
+                data-toast-text="<strong>Lorem</strong> ipsum dolor sit amet consectetur adipisicing elit."
+                data-toast-icon='<i class="material-icons">add_shopping_cart</i>'
+            >
+                show toast bottom right with icon
+            </button>
+
+            <button
+                class="js-button"
+                data-toast-position="bottom-right"
+                data-toast-type="success"
+                data-toast-text="<strong>Lorem</strong> ipsum dolor sit amet consectetur adipisicing elit. Suscipit odio quas praesentium hic, facilis reprehenderit optio ad aperiam voluptatibus laboriosam nobis. Voluptas tempore temporibus omnis sit provident neque aliquid enim?"
+            >
+                show toast bottom right
+            </button>
+
+            <button
+                class="js-button"
+                data-toast-position="bottom-left"
+                data-toast-type="success"
+                data-toast-text="button toast text"
+            >
+                show toast bottom left
+            </button>
+
+            <button
+                class="js-button"
+                data-toast-position="bottom-center"
+                data-toast-type="success"
+                data-toast-text="button toast text"
+            >
+                show toast bottom center
+            </button>
+
+            <button
+                class="js-button"
+                data-toast-position="top-left"
+                data-toast-type="success"
+                data-toast-text="button toast text"
+            >
+                show toast top left
+            </button>
+
+            <button
+                class="js-button"
+                data-toast-position="top-right"
+                data-toast-type="success"
+                data-toast-text="button toast text"
+            >
+                show toast top right
+            </button>
+
+            <button
+                class="js-button"
+                data-toast-position="top-center"
+                data-toast-type="success"
+                data-toast-text="button toast text"
+            >
+                show toast top center
+            </button>
+        </div>
+        <script type="module" src="./dist/index.js"></script>
+    </body>
+</html>
