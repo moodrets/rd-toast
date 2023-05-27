@@ -21,12 +21,12 @@ export class RDToast {
         };
         this.init();
     }
-    show(type = 'info', text = '', options) {
+    show(type = 'info', text = '', options = {}) {
         const localOptions = { ...this.settings, ...options, type };
-        const existContainer = this.canvas?.querySelector(`.${this.settings.groupContainerClass}.position-${localOptions.position}`);
+        const existsContainer = this.canvas?.querySelector(`.${this.settings.groupContainerClass}.position-${localOptions.position}`);
         const toast = this.createToast(text, localOptions);
-        if (existContainer) {
-            existContainer.append(toast);
+        if (existsContainer) {
+            existsContainer.append(toast);
             return;
         }
         const toastContainer = this.createContainer(localOptions);
@@ -35,7 +35,12 @@ export class RDToast {
     }
     createToast(text, options) {
         const toast = document.createElement('div');
-        const toastClassList = [options.toastClass || '', `type-${options.type}`, options.showClass || ''];
+        const toastClassList = [
+            options.toastClass || '',
+            `type-${options.type}`,
+            `position-${options.position}` || '',
+            options.showClass || ''
+        ];
         toast.classList.add(...toastClassList);
         toast.innerHTML = `<div class="${options.toastContentClass}">${text}</div>`;
         options.icon &&
@@ -69,6 +74,11 @@ export class RDToast {
         return toastContainer;
     }
     init() {
+        const existsCanvas = document.querySelector(`.${this.settings.canvasClass}`);
+        if (existsCanvas) {
+            this.canvas = existsCanvas;
+            return;
+        }
         this.canvas = document.createElement('div');
         this.canvas.classList.add(this.settings.canvasClass);
         document.body.append(this.canvas);

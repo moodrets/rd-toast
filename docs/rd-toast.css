@@ -1,4 +1,4 @@
-@keyframes rd-toast-show {
+@keyframes rd-toast-bottom-show {
     0% {
         opacity: 0;
         transform: translate3d(0, 100%, 0);
@@ -10,7 +10,31 @@
     }
 }
 
-@keyframes rd-toast-hide {
+@keyframes rd-toast-bottom-hide {
+    0% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate3d(0, -100%, 0);
+    }
+}
+
+@keyframes rd-toast-top-show {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, -100%, 0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes rd-toast-top-hide {
     0% {
         opacity: 1;
         transform: translate3d(0, 0, 0);
@@ -130,12 +154,22 @@
     color: var(--rd-toast-success-text);
 }
 
-.rd-toast-item.show {
-    animation: rd-toast-show 0.5s;
+.rd-toast-item[class*='position-bottom'].show {
+    animation: rd-toast-bottom-show 0.5s;
 }
 
-.rd-toast-item.hide {
-    animation: rd-toast-hide 0.5s;
+.rd-toast-item[class*='position-bottom'].hide {
+    animation: rd-toast-bottom-hide 0.5s;
+    opacity: 0;
+}
+
+.rd-toast-item[class*='position-top'].show {
+    animation: rd-toast-top-show 0.5s;
+}
+
+.rd-toast-item[class*='position-top'].hide {
+    animation: rd-toast-top-hide 0.5s;
+    opacity: 0;
 }
 
 @media only screen and (min-width: 980px) {
