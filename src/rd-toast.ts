@@ -101,7 +101,7 @@ export class RDToast {
         return toast;
     }
 
-    protected removeToast(toast: HTMLElement, options: Partial<RDToastOptions>) {
+    protected removeToast(toast: HTMLElement, options: Partial<RDToastOptions>): void {
         if (options.showClass) {
             toast.classList.remove(options.showClass);
         }
@@ -117,7 +117,7 @@ export class RDToast {
         }, parseFloat(animationDuration) * 1000);
     }
 
-    protected createContainer(options: Partial<RDToastOptions>) {
+    protected createContainer(options: Partial<RDToastOptions>): HTMLElement {
         const toastContainer = document.createElement('div');
 
         toastContainer.classList.add(this.settings.groupContainerClass, `position-${options.position}`);
