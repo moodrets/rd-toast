@@ -33,7 +33,7 @@ export class RDToast {
         hideOnClick: false,
     };
 
-    constructor(options: Partial<RDToastOptions>) {
+    constructor(options?: Partial<RDToastOptions>) {
         this.settings = {
             ...this.settings,
             ...options,
@@ -41,7 +41,7 @@ export class RDToast {
         this.init();
     }
 
-    public show(type: string = 'info', text: string = '', options: Partial<RDToastOptions> = {}) {
+    public show(type: string = 'info', text: string = '', options: Partial<RDToastOptions> = {}): HTMLElement {
 
         const localOptions = { ...this.settings, ...options, type };
 
@@ -53,7 +53,7 @@ export class RDToast {
 
         if (existsContainer) {
             existsContainer.append(toast);
-            return;
+            return toast;
         }
 
         const toastContainer = this.createContainer(localOptions);
@@ -61,9 +61,16 @@ export class RDToast {
         toastContainer.append(toast);
 
         this.canvas?.append(toastContainer);
+
+        return toast
     }
 
-    protected createToast(text: string, options: Partial<RDToastOptions>) {
+    public drop(toast: HTMLElement, options: Partial<RDToastOptions> = {}) {
+        const localOptions = {...this.settings, ...options}
+        this.removeToast(toast, localOptions)
+    }
+
+    protected createToast(text: string, options: Partial<RDToastOptions>): HTMLElement {
         const toast = document.createElement('div');
 
         const toastClassList = [
